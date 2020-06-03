@@ -7,10 +7,13 @@
     <link rel="stylesheet" href="circles.css" />
     <script src="node_modules\paper\dist\paper-full.js"></script>
     <script type="text/paperscript" canvas="myCanvas">
-      for (var x = 0; x < 11; x++) {
-        for (var y = 0; y < 11; y++) {
-          new Path.Circle(new Point(x*100,y*100),10).strokeColor = "purple";
-        }
+      tool.onKeyDown = function(event) {
+        var maxPoint = new Point(view.size.width, view.size.height)
+        var randomPoint = Point.random()
+        var point = maxPoint * randomPoint
+        new Path.Circle(point,30).fillColor = 'red'
+
+        return false;
       }
     </script>
   </head>
